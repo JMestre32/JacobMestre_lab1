@@ -23,12 +23,12 @@ def main():
     studentList =[]
     text_file = open("students.txt", "r") 
     array = text_file.read().split(',')
-    if count < len(array):
+    while count < 60:
         studentList.append(Student(array[0], array[1], array[2], array[3],array[4], array[5], array[6], array[7]))
         count += 1
 
     for obj in studentList:
-        print(obj.fName)  
+        print(obj.lName)
 
 if __name__ =="__main__":
     main()
