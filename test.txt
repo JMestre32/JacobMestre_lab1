@@ -9,3 +9,4 @@ G: 3 High
 Grade: 1 Low
 A: 6
 Info
+Quit
