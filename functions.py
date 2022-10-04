@@ -50,7 +50,7 @@ def startMenu(studentList):
                 startMenu(studentList)
             elif(option == "A:" or option == "Average:"):
                 avg = averageFunc(myInput[1], studentList)
-                print(avg)
+                print("Grade level: ", myInput[1], " average GPA: ", avg)
                 startMenu(studentList)
         elif len(myInput) ==3:
             if(option == "S:" or option == "Student:") and (myInput[2] == "B" or myInput[2] == "Bus"):
@@ -58,11 +58,11 @@ def startMenu(studentList):
                 startMenu(studentList)
             elif(option == "G:" or option == "Grade:") and (myInput[2]== "H" or myInput[2] =="High"):
                 high = gradeSearchHigh(myInput[1], studentList)
-                print("Grade: ", myInput[1], "Average GPA: ", high) 
+                print("Grade: ", myInput[1], "Highest GPA: ", high) 
                 startMenu(studentList)
             elif(option == "G:" or option == "Grade:") and (myInput[2] == "L" or myInput[2] =="Low"):
                 low =gradeSearchLow(myInput[1], studentList)
-                print(low)
+                print("Grade: ", myInput[1], " Lowest GPA: ", low)
                 startMenu(studentList)
 
 
@@ -112,7 +112,7 @@ def gradeSearch(name, studentList):
         if name != studentList[count].gde:
             count +=1
         elif name == studentList[count].gde:
-            print(studentList[count].lName, studentList[count].fName, studentList[count].gpa)
+            print(studentList[count].lName, studentList[count].fName)
             count +=1
 
 def gradeSearchHigh(number, studentList):
@@ -160,7 +160,6 @@ def averageFunc(number, studentList):
             sum = sum + float (studentList[count].gpa)
             occassions +=1
             count +=1
-    print(occassions)
     return sum/occassions 
 
 

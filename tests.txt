@@ -1,0 +1,11 @@
+
+S: COMO
+Student: CORKER Bus
+T: FAFARD
+B: 52
+G: 3
+G: 3 High
+Grade: 1 Low
+A: 6
+Info
+Quit
