@@ -125,9 +125,8 @@ def gradeSearchHigh(number, studentList):
                 num = float (studentList[count].gpa)
                 if num > max:
                     max = num
-                    count+=1
-                elif num < max:
-                        count+=1                  
+                count +=1                   
+        print(max)               
     return max   
                 
                     
@@ -143,9 +142,7 @@ def gradeSearchLow(number, studentList):
             num = float(studentList[count].gpa)
             if num < low:
                 low = num
-                count +=1
-            elif num > low:
-                count+=1
+            count+=1
     return low    
 
 
