@@ -17,6 +17,7 @@ class Student:
 
 
 def startMenu(studentList):
+    
     print("Hello! Please enter any of the following choices (NOTE: Anything in brackets[] is optional input, anything in angle brackets is your input)")
     print("S[tudent]: <lastname> [B[us]]")
     print("T[eacher]: <lastname>")
@@ -27,41 +28,48 @@ def startMenu(studentList):
     print("Q[uit]")
     myInput = list(input("Enter your option here: ").split(" "))
     option = myInput[0]
-
-    if len(myInput)==1:
-        if (option == "I" or option == "Info"):
-            infoFunc(studentList)
-        if(option == "Q" or option == "Quit"):
-            quit()
-    if len(myInput) ==2:
-        if (option == "S:" or option == "Student:"):
-            studentSearch(myInput[1], studentList)
-        elif (option =="T:" or option == "Teacher:"):
-            teacherSearch(myInput[1], studentList)
-        elif(option =="B:" or option =="Bus:"):
+    while (myInput[0] != "Q" or myInput[0] != "Quit"):
+        if len(myInput)==1:
+            if (option == "I" or option == "Info"):
+                infoFunc(studentList)
+                startMenu(studentList)
+            if(option == "Q" or option == "Quit"):
+                quit()
+        if len(myInput) ==2:
+            if (option == "S:" or option == "Student:"):
+                studentSearch(myInput[1], studentList)
+                startMenu(studentList)
+            elif (option =="T:" or option == "Teacher:"):
+                teacherSearch(myInput[1], studentList)
+                startMenu(studentList)
+            elif(option =="B:" or option =="Bus:"):
                 busSearch(myInput[1], studentList)
-        elif(option =="G:" or option == "Grade:"):
-            gradeSearch(myInput[1], studentList)
-        elif(option == "A:" or option == "Average:"):
-            avg = averageFunc(myInput[1], studentList)
-            print(avg)
-    elif len(myInput) ==3:
-        if(option == "S:" or option == "Student:") and (myInput[2] == "B" or myInput[2] == "Bus"):
-            studentBusSearch(myInput[1], studentList)
-        elif(option == "G:" or option == "Grade: ") and (myInput[2]== "H" or myInput[2] =="High"):
-            high = gradeSearchHigh(myInput[1], studentList)
-            print("Grade: ", myInput[1], "Average GPA: ", high) 
-
-        elif(option == "G:" or option == "Grade: ") and (myInput[2] == "L" or myInput[2] =="Low"):
-            low =gradeSearchLow(myInput[1], studentList)
-            print(low)
+                startMenu(studentList)
+            elif(option =="G:" or option == "Grade:"):
+                gradeSearch(myInput[1], studentList)
+                startMenu(studentList)
+            elif(option == "A:" or option == "Average:"):
+                avg = averageFunc(myInput[1], studentList)
+                print(avg)
+                startMenu(studentList)
+        elif len(myInput) ==3:
+            if(option == "S:" or option == "Student:") and (myInput[2] == "B" or myInput[2] == "Bus"):
+                studentBusSearch(myInput[1], studentList)
+                startMenu(studentList)
+            elif(option == "G:" or option == "Grade:") and (myInput[2]== "H" or myInput[2] =="High"):
+                high = gradeSearchHigh(myInput[1], studentList)
+                print("Grade: ", myInput[1], "Average GPA: ", high) 
+                startMenu(studentList)
+            elif(option == "G:" or option == "Grade:") and (myInput[2] == "L" or myInput[2] =="Low"):
+                low =gradeSearchLow(myInput[1], studentList)
+                print(low)
+                startMenu(studentList)
 
 
 
 
 def studentSearch(name, studentList):
     count = 0
-    print("in studentSearch")
     while count <60:
         if name != studentList[count].lName:
             count += 1
@@ -119,7 +127,7 @@ def gradeSearchHigh(number, studentList):
                     max = num
                     count+=1
                 elif num < max:
-                        count+=1
+                        count+=1                  
     return max   
                 
                     

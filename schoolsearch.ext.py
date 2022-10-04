@@ -11,8 +11,6 @@ def main():
     for line in array:
        textLine = line.split(",")
        studentList.append(Student(textLine[0], textLine[1], textLine[2], textLine[3],textLine[4], textLine[5], textLine[6], textLine[7]))
-    print(studentList[0].tFname)
-    print(studentList[1].lName)
     startMenu(studentList)
     
 
